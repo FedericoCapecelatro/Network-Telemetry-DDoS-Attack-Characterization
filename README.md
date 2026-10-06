@@ -11,9 +11,9 @@ This project was developed jointly at **Politecnico di Torino** (January 2026). 
 | Author | Institutional Email | Personal Email |
 | :--- | :--- | :--- |
 | **Alessandro Bottazzi** | [s352421@studenti.polito.it](mailto:s352421@studenti.polito.it) | [bottazzi.personale@gmail.com](mailto:bottazzi.personale@gmail.com) 
-| **Matteo De Cataldo** | [s360850@studenti.polito.it](mailto:s360850@studenti.polito.it) | [personal@example.com](mailto:personal@example.com) |
+| **Matteo De Cataldo** | [s360850@studenti.polito.it](mailto:s360850@studenti.polito.it) | [matteo.decataldo@proton.me ](mailto:matteo.decataldo@proton.me  |
 | **Federico Capecelatro** | [s351649@studenti.polito.it](mailto:s351649@studenti.polito.it) | [capecelatrofederico@gmail.com](mailto:capecelatrofederico@gmail.com) |
-| **Pietro Ala** | [s352318@studenti.polito.it](mailto:s352318@studenti.polito.it) | [personal@example.com](mailto:personal@example.com) |
+| **Pietro Ala** | [s352318@studenti.polito.it](mailto:s352318@studenti.polito.it) | [ala.pietro63@gmail.com](mailto:ala.pietro63@gmail.com) |
 
 ---
 
@@ -90,3 +90,32 @@ All hyperparameter searches used `RepeatedStratifiedKFold(n_splits=5, n_repeats=
 * **Unsupervised Feature Importance (`S4`)**: Permuting individual features across 20 iterations demonstrated that **Control Features** (`ACK Flag Count`, `Protocol`, `Inbound`, `src_port_category`) govern **Cluster Stability** ($1 - \text{ARI}_{\text{perm}}$), whereas **Payload Size Features** (`Fwd Packet Length Mean/Max/Min`, `Min Packet Length`, `Bytes_per_Packet`, `Average Packet Size`) govern **Geometric Cohesion** ($\Delta \text{Silhouette}$).
 
 ---
+
+---
+
+## Repository Structure
+
+```text
+Network-Telemetry-DDoS-Attack-Characterization/
+│
+├── S1_Data_Visualization.ipynb       # Protocol/port distributions, amplification factor & IAT fingerprinting
+├── S1_Feature_Engineering.ipynb      # Ratio features, IP/port categorization, zero-variance & duplicate pruning
+├── S1_Preprocessing_PCA.ipynb        # Scree plot, PC1 loadings, 2D projection, and top-5 PC parallel coordinates
+│
+├── S2_stratified_kNN.ipynb           # k-NN baseline & GridSearchCV on 70/30 Stratified Split
+├── S2_timesplit_kNN.ipynb            # k-NN baseline & GridSearchCV on 70/30 Chronological Split
+├── S2_randomsplit_RF.ipynb           # Random Forest baseline, validation curves & GridSearchCV (Stratified)
+├── S2_timesplit_RF.ipynb             # Random Forest baseline, validation curves & GridSearchCV (Temporal)
+├── S2_timesplit_RF_no_hour.ipynb     # Ablation study: Temporal Random Forest removing the 'hour' leakage feature
+│
+├── S3_Kmeans.ipynb                   # K-Means tuning (k=2..40) comparing Euclidean vs. Cosine distance + UMAP
+├── S3_GMM.ipynb                      # Gaussian Mixture Models across spherical, diag, tied, and full covariances
+├── S3_DBSCAN.ipynb                   # DBSCAN grid search over eps & min_samples with noise ratio evaluation
+│
+├── S4_KmeansAnalysis.ipynb           # Permutation importance & intra-cluster/sub-attack profiling for K-Means
+├── S4_GMMAnalysis.ipynb              # Permutation importance & intra-cluster/sub-attack profiling for GMM
+├── S4_DBSCANAnalysis.ipynb           # Permutation importance & intra-cluster/sub-attack profiling for DBSCAN
+│
+├── CITATION.cff                      # Formal citation metadata for all four co-authors
+├── LICENSE                           # MIT License
+└── README.md
