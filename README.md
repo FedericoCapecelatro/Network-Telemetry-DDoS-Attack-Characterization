@@ -44,7 +44,7 @@ A critical vulnerability in many lab-generated DDoS datasets is sequential attac
 
 ### 3. Why Intensity Dominates Protocol Semantics in Unsupervised Clustering
 * **Failure of Angular Metrics (Cosine K-Means)**: Applying L2 normalization for Cosine K-Means yielded a near-perfect internal Silhouette score (**0.96** at $k=4$) but failed externally (**ARI = 0.10**). Because Cosine distance is magnitude-invariant, it discards traffic volume—collapsing almost all volumetric DDoS classes into a single undifferentiated cluster.
-* **Variable Density Breakdown in DBSCAN**: Because `ddos_ntp` is heavily underrepresented (986 total flows vs. $~5,500–6,000$ for other classes), DBSCAN ($\epsilon=1.2, \text{min\_samples}=500$) classified **100% of `ddos_ntp` traffic as noise (`-1`)**.
+* **Variable Density Breakdown in DBSCAN**: Because `ddos_ntp` is heavily underrepresented (986 total flows vs. ~5,500–6,000 for other classes), DBSCAN ($\epsilon=1.2, \text{min\\_samples}=500$) classified **100% of `ddos_ntp` traffic as noise (`-1`)**.
 * **Behavioral Sub-Attacks (GMM `diag`, $k=15$)**: Unsupervised profiling revealed that flow clustering groups attacks by **execution rate and payload size** rather than Layer-7 protocol semantics:
   * `ddos_syn` (TCP) and `ddos_tftp` (UDP) co-cluster into two distinct behavioral regimes: a **high-speed burst flood** (Cluster 1: low IAT, high Packets/s) and a **throttled/slow variant** (Cluster 7: high IAT, high Idle time).
   * `ddos_udp` and `ddos_udp_lag` split evenly between **low-rate small-packet persistence** (Cluster 2) and **high-speed volumetric flooding** alongside `ddos_snmp` and `ddos_netbios` (Cluster 10).
