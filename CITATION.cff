@@ -5,7 +5,7 @@ title: "Network-Telemetry-DDoS-Attack-Characterization: An end-to-end Machine Le
 date-released: 2026-01-01
 version: 1.0.0
 license: MIT
-repository-code: "https://github.com/YOUR_GITHUB_USERNAME/Network-Telemetry-DDoS-Attack-Characterization"
+repository-code: "https://github.com/FedericoCapecelatro/Network-Telemetry-DDoS-Attack-Characterization"
 authors:
   - family-names: "Bottazzi"
     given-names: "Alessandro"
