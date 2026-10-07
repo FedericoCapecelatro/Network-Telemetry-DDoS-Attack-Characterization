@@ -1,0 +1,23 @@
+```yaml
+cff-version: 1.2.0
+message: "If you use this codebase or analysis in your work, please cite all authors as below."
+title: "Network-Telemetry-DDoS-Attack-Characterization: An end-to-end Machine Learning pipeline for DDoS detection, generalization stress-testing, and unsupervised behavioural profiling on flow-level network telemetry"
+date-released: 2026-01-01
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/FedericoCapecelatro/Network-Telemetry-DDoS-Attack-Characterization"
+authors:
+  - family-names: "Bottazzi"
+    given-names: "Alessandro"
+  - family-names: "De Cataldo"
+    given-names: "Matteo"
+  - family-names: "Capecelatro"
+    given-names: "Federico"
+  - family-names: "Ala"
+    given-names: "Pietro"
+keywords:
+  - "DDoS Detection"
+  - "Network Telemetry"
+  - "Supervised Learning"
+  - "Unsupervised Clustering"
+ 
